@@ -16,6 +16,7 @@
     display: flex;
     flex-wrap: wrap;
     background-color: rgb(63, 60, 60); /* Background color for the entire container */
+    padding-top: 15vh; /* Added padding to avoid overlap with navbar */
 }
 
 /* Navigation List Styling */
@@ -153,5 +154,9 @@
     .navlist li a {
         font-size: 0.9rem;
         padding: 0.3rem 0.7rem;
+    }
+
+    .portfolio-container {
+        padding-top: 20vh; /* Increase top padding for smaller screens to avoid overlap */
     }
 }
