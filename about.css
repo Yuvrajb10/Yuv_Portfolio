@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.portfolio-container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
+.navlist {
+    display: flex;
+    gap: 3.5rem;
+    height: 15vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: rgb(63, 60, 60);
+}
+
+.navlist li {
+    list-style: none;
+}
+
+.navlist li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: white;
+    position: relative;
+}
+
+.navlist li a.active {
+    font-weight: bold;
+}
+
+.left-container, .right-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.left-container {
+    background-color: rgb(63, 60, 60);
+    width: 70%;
+    padding-left: 3rem;
+}
+
+.right-container {
+    background: linear-gradient(-45deg, rgb(75, 106, 206), rgb(63, 60, 60) 70%);
+    width: 30%;
+}
+
+.content {
+    margin-left: 3rem;
+}
+
+.content h1 {
+    font-size: 3rem;
+    color: rgb(75, 106, 206);
+}
+
+.content .detail {
+    font-size: 1rem;
+    color: antiquewhite;
+    max-width: 38rem;
+    margin: 1rem 0 2rem 0;
+    line-height: 1.6rem;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+    .content h1 {
+        font-size: 2.5rem;
+    }
+
+    .content .detail {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .left-container, .right-container {
+        width: 100%;
+        height: auto;
+    }
+
+    .left-container {
+        padding: 1rem;
+    }
+
+    .right-container {
+        display: none; /* Hide the right container on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .navlist {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .navlist li a {
+        font-size: 0.8rem;
+    }
+
+    .content h1 {
+        font-size: 2rem;
+    }
+
+    .content .detail {
+        font-size: 1.2rem;
+    }
+}
