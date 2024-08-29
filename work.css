@@ -1,5 +1,7 @@
+/* Importing Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
+/* Resetting Margin and Padding */
 * {
     margin: 0;
     padding: 0;
@@ -7,31 +9,23 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body, html {
-    height: 100%;
-    width: 100%;
-    overflow-x: hidden;
-}
-
+/* General Container Styling */
 .portfolio-container {
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
     width: 100%;
-    overflow-y: auto;
+    display: flex;
 }
 
+/* Navigation List Styling */
 .navlist {
     display: flex;
+    gap: 3.5rem;
+    height: 15vh;
+    width: 100%;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    padding: 1rem;
-    background-color: rgb(63, 60, 60);
     position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 100;
+    background-color: rgb(63, 60, 60); /* Match the navbar background color */
 }
 
 .navlist li {
@@ -43,52 +37,145 @@ body, html {
     text-transform: uppercase;
     font-size: 1rem;
     color: white;
+    position: relative;
 }
 
-.navlist li a.active {
+/* Active Link Styling */
+.navlist .active {
     font-weight: bold;
 }
 
+.navlist li a::after, .navlist .active::after {
+    content: "";
+    position: absolute;
+    background: white;
+    width: 100%;
+    height: .1rem;
+    left: 0;
+    bottom: -5px;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform .5s;
+}
+
+.navlist li a:hover::after, .navlist .active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Content and Layout Styling */
+.left-container, .right-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
 .left-container {
-    margin-top: 15vh; /* Compensate for fixed nav */
-    padding: 2rem;
-    width: 70%;
     background-color: rgb(63, 60, 60);
-    color: antiquewhite;
-    overflow-y: visible;
+    width: 70%;
+    padding-left: 3rem;
 }
 
 .right-container {
-    width: 30%;
     background: linear-gradient(-45deg, rgb(75, 106, 206), rgb(63, 60, 60) 70%);
-    display: block;
+    width: 30%;
+}
+
+/* Content Styling */
+.content {
+    margin-left: 3rem;
 }
 
 .content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: rgb(75, 106, 206);
+    font-size: 3rem;
+    color: white !important; /* Ensure the text is white */
 }
 
-.work-item {
-    margin-bottom: 2rem;
+.service-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
-.work-item h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+.service-item {
+    background: rgba(75, 106, 206, 0.1);
+    border: 1px solid rgb(75, 106, 206);
+    border-radius: 0.7rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
-.work-item p {
+.service-item i {
+    font-size: 2rem;
+    color: white !important; /* Ensure the icon color is white */
+}
+
+.service-item h2 {
+    font-size: 1.5rem;
+    color: white !important; /* Ensure the heading is white */
+}
+
+.service-item p {
     font-size: 1rem;
-    line-height: 1.5;
+    color: white !important; /* Ensure the paragraph text is white */
+}
+
+/* Circle Design Styling */
+.design .circle {
+    aspect-ratio: 1;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+
+.circle:nth-child(1) {
+    background: linear-gradient(90deg, transparent 50%, rgb(63, 60, 60) 50%);
+    width: 35rem;
+}
+
+.circle:nth-child(2) {
+    background: white;
+    width: 28rem;
+    background-image: url("image/img.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border: 0.3rem solid white;
+    box-shadow: 
+        0 0 1rem white,
+        inset 0 0 1rem white,
+        0 0 2rem rgb(75, 106, 206),
+        inset 0 0 2rem rgb(75, 106, 206),
+        0 0 4rem rgb(75, 106, 206),
+        inset 0 0 4rem rgb(75, 106, 206);
 }
 
 /* Media Queries for Responsive Design */
 @media (max-width: 1024px) {
-    .left-container {
+    .circle:nth-child(1) {
+        width: 25rem;
+    }
+
+    .circle:nth-child(2) {
+        width: 20rem;
+    }
+
+    .content h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .left-container, .right-container {
         width: 100%;
-        margin-top: 18vh; /* Adjust for smaller screens */
+        height: auto;
+    }
+
+    .left-container {
         padding: 1rem;
     }
 
@@ -96,56 +183,27 @@ body, html {
         display: none; /* Hide the right container on smaller screens */
     }
 
-    .content h1 {
-        font-size: 2rem;
-    }
-
-    .work-item h2 {
-        font-size: 1.5rem;
-    }
-
-    .work-item p {
-        font-size: 0.9rem;
+    .design .circle {
+        width: 15rem; /* Adjust circle size for smaller screens */
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .navlist {
         flex-direction: column;
         gap: 1rem;
     }
 
     .navlist li a {
-        font-size: 0.9rem;
-    }
-
-    .content h1 {
-        font-size: 1.8rem;
-    }
-
-    .work-item h2 {
-        font-size: 1.4rem;
-    }
-
-    .work-item p {
-        font-size: 0.85rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .content h1 {
-        font-size: 1.5rem;
-    }
-
-    .work-item h2 {
-        font-size: 1.2rem;
-    }
-
-    .work-item p {
         font-size: 0.8rem;
     }
 
-    .left-container {
-        padding: 1rem 0.5rem;
+    .content h1 {
+        font-size: 2rem;
+    }
+
+    .service-item {
+        width: 90%;
+        margin: 0 auto;
     }
 }
