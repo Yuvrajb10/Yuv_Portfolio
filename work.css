@@ -16,7 +16,6 @@
     display: flex;
     flex-wrap: wrap;
     background-color: rgb(63, 60, 60); /* Background color for the entire container */
-    padding-top: 15vh; /* Added padding to avoid overlap with navbar */
 }
 
 /* Navigation List Styling */
@@ -80,6 +79,7 @@
     flex: 3;
     background-color: rgb(63, 60, 60);
     color: white;
+    padding-top: 15vh; /* Ensure there's enough space for the navbar */
 }
 
 .right-container {
@@ -125,6 +125,10 @@
         flex-direction: column;
         gap: 1rem;
     }
+
+    .left-container {
+        padding-top: 18vh; /* Increase padding for smaller screens */
+    }
 }
 
 @media (max-width: 768px) {
@@ -135,6 +139,10 @@
 
     .right-container {
         display: none; /* Hide the right container on smaller screens */
+    }
+
+    .left-container {
+        padding-top: 20vh; /* Further increase padding for even smaller screens */
     }
 }
 
@@ -156,7 +164,7 @@
         padding: 0.3rem 0.7rem;
     }
 
-    .portfolio-container {
-        padding-top: 20vh; /* Increase top padding for smaller screens to avoid overlap */
+    .left-container {
+        padding-top: 22vh; /* Ensure there's enough space for the navbar on small screens */
     }
 }
